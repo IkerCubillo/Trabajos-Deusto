@@ -1,18 +1,6 @@
 package es.deusto.prog3.cap00.ejercicios;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
 import java.util.Random;
-
-import javax.swing.*;
-import java.awt.*;
-
-
 
 /** Ejercicio de hilos con ventanas. Programa esta clase para que se cree una ventana
  * que pida un dato de texto al usuario y un botÃ³n de confirmar para que se confirme.
@@ -36,67 +24,6 @@ public class VentanaConfirmacionLenta {
 	
 	public static void main(String[] args) {
 		// TODO Desarrollar la clase de acuerdo a los comentarios de la cabecera
-		// Configuración de ventana
-		JFrame ventana = new JFrame();
-		ventana.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		JPanel pSuperior = new JPanel();
-		pSuperior.setBackground(Color.red);
-		JTextField tfData = new JTextField("Introduce aquí el nombre",50);
-		JButton bConfirmar = new JButton("Confirmar");
-		pSuperior.add(tfData);
-		ventana.add(bConfirmar, BorderLayout.SOUTH);
-		ventana.add(pSuperior, BorderLayout.NORTH);
-		ventana.setLocation(100,100);
-		ventana.setSize(600,400);
-		//	Eventos
-	//	bConfirmar.addActionListener( new MiAccion() );
-		
-		bConfirmar.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				Thread t = new Thread(new Runnable() {
-					
-					@Override
-					public void run() {
-						System.out.println("boton");
-						procesoConfirmar();
-						System.out.println("terminado");
-						bConfirmar.setEnabled(true);
-					}
-				});
-				t.setDaemon(true);
-				t.start();
-				bConfirmar.setEnabled(false);
-			}
-		});
-		
-		ventana.addWindowListener(new WindowAdapter() {
-			@Override
-			public void windowClosed(WindowEvent e) {
-				// TODO Auto-generated method stub
-				System.exit(0);
-			}
-			
-		});
-
-		// Lanzamiento
-		ventana.setVisible(true);
-		System.out.println("Fin");
-//		verHilos("en fin de main");
-		
-	}
-	
-	private static void verHilos() {
-		Thread.getAllStackTraces().keySet();
-//		Set<Thread> 
-		
-	}
-	
-	class MiAccion implements ActionListener{
-		public void actionPerformed(ActionEvent e) {
-			//acciones
-		}
 	}
 
 }
