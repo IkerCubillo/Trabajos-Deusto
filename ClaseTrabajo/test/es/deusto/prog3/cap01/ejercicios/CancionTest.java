@@ -67,8 +67,41 @@ public class CancionTest {
 	}
 	
 	// TODO getters igual
+	@Test
+	public void testGetters() throws CancionException {
+		Cancion cancion3 = new Cancion("", 1000000);
+		Cancion cancion4 = new Cancion(null);
+		// getNombre()
+		assertEquals("Bad Romance", cancion1.getNombre());
+		assertEquals("", cancion3.getNombre());
+		assertEquals("", cancion4.getNombre());
+		// getDuracion()
+		assertEquals("00:00:00", cancion1.getDuracion());
+		assertEquals("00:05:20", cancion2.getDuracion());
+		assertEquals("277:46:40", cancion3.getDuracion());
+		// getDuracionEnSegundos()
+		assertEquals(0, cancion1.getDuracionEnSegundos());
+		assertEquals(320, cancion2.getDuracionEnSegundos());
+		assertEquals(1000000, cancion3.getDuracionEnSegundos());
+	}
 	
 	// TODO setDuracionEnSegundos igual
+	
+	@Test
+	public void testSetDuracionEnSegundos() throws CancionException {
+		cancion1.setDuracionEnSegundos(45);
+		assertEquals("00:00:45", cancion1.getDuracion());
+		cancion1.setDuracionEnSegundos(60);
+		assertEquals("00:01:00", cancion1.getDuracion());
+		cancion1.setDuracionEnSegundos(62);
+		assertEquals("00:01:02", cancion1.getDuracion());
+		cancion1.setDuracionEnSegundos(123);
+		assertEquals("00:02:03", cancion1.getDuracion());
+		cancion1.setDuracionEnSegundos(3615);
+		assertEquals("01:00:15", cancion1.getDuracion());
+		cancion1.setDuracionEnSegundos(3600*102);
+		assertEquals("102:00:00", cancion1.getDuracion());
+	}
 	
 	@Test
 	public void testGetDuracion() throws CancionException {
@@ -97,27 +130,28 @@ public class CancionTest {
 		}
 	}
 	
-	@Test
-	public void testGetVentanaCancion() {
-		JFrame v = cancion2.getVentanaCancion();
-		v.setVisible(true);
-		// Titulo
-		assertEquals("Ventana canción", v.getTitle());
-		// Nombre de la cancion
-		assertEquals( cancion2.getNombre(), cancion2.tfNombre.getText());
-		// Cambio nombre de la cancion
-		cancion2.tfNombre.setText("Nombre nuevo");
-		try {
-			Robot robot = new Robot();
-			robot.keyPress(KeyEvent.VK_ENTER);
-			try{Thread.sleep(50);} catch (Exception e) {}
-			robot.keyRelease(KeyEvent.VK_ENTER);
-		} catch (AWTException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		assertEquals("Nombre nuevo", cancion2.getNombre());
-		try{Thread.sleep(5000);} catch (Exception e) {}
-	}
+//	@Test
+//	public void testGetVentanaCancion() {
+//		JFrame v = cancion2.getVentanaCancion();
+//		v.setVisible(true);
+//		// Titulo
+//		assertEquals("Ventana canción", v.getTitle());
+//		// Nombre de la cancion
+//		assertEquals( cancion2.getNombre(), cancion2.tfNombre.getText());
+//		// Cambio nombre de la cancion
+//		cancion2.tfNombre.setText("Nombre nuevo");
+//		try {
+//			Robot robot = new Robot();
+//			robot.keyPress(KeyEvent.VK_ENTER);
+//			try{Thread.sleep(50);} catch (Exception e) {}
+//			robot.keyRelease(KeyEvent.VK_ENTER);
+//		} catch (AWTException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		assertEquals("Nombre nuevo", cancion2.getNombre());
+//		try{Thread.sleep(5000);} catch (Exception e) {}
+//		v.dispose();
+//	}
 
 }
