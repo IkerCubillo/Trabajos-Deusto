@@ -4,6 +4,7 @@ import java.io.*;
 import java.net.Socket;
 import java.net.SocketTimeoutException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.net.ServerSocket;
 import java.awt.*;
 import javax.swing.*;
@@ -188,8 +189,12 @@ public class EjemploSockets2 {
 									taMensajes.setSelectionStart( taMensajes.getText().length() );
 									if (textoRecibido.equals("hola")) {
 										for (PrintWriter outputCl : lSalidas) {
-											outputCl.println( "El cliente " + numC + " saluda a todos." );
+											if(outputACliente != outputCl) {
+												outputCl.println( "El cliente " + numC + " saluda a todos." );
+											}
 										}
+									} else if(textoRecibido.equals("hora")){
+										outputACliente.println("Hora: " + (new Date()) );
 									} else {
 										outputACliente.println("Recibido: [" + textoRecibido + "]" );
 									}
