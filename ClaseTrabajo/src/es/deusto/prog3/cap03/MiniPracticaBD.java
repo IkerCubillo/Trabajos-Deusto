@@ -123,10 +123,13 @@ public class MiniPracticaBD {
 				if (!tfUsuario.getText().isEmpty() && !tfPassword.getText().isEmpty()) {
 					String com = "";
 					try {
-						// Borrar usuario
+						// Borrar usuario - delete from Usuario where nick = 'valor'
 						com = "delete from Usuario where nick = '"+ secu(tfUsuario.getText()) +"'";
 						logger.log( Level.INFO, "BD: " + com );
-						s.executeUpdate( com );
+						int numFilasCambiadas = s.executeUpdate( com );
+						if(numFilasCambiadas == 0) {
+							JOptionPane.showMessageDialog( ventana, "No exis�a un usuario con ese nick " + tfUsuario.getText() );
+						}
 					} catch (SQLException e2) {
 						System.out.println( "Último comando: " + com );
 						e2.printStackTrace();
@@ -176,7 +179,7 @@ public class MiniPracticaBD {
 
 	// Posible función de "securización" para evitar errores o ataques
 	private static String secu( String sqlInicial ) {
-		return sqlInicial;
+		return sqlInicial.replaceAll("'", "''");
 		// Si lo reemplazamos por esto, es mucho más seguro:
 		// return sqlInicial.replaceAll( "'", "''" );
 	}
