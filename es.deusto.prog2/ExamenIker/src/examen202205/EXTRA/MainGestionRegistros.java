@@ -1,4 +1,4 @@
-package examen202205;
+package examen202205.EXTRA;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -26,7 +26,7 @@ public class MainGestionRegistros {
 	 */
 	public static void main(String[] args) {
 		// T1
-		if("datos-registro.txt")
+		if("datos-registro.txt" != null)
 		grupo = new GrupoRegistros( "datos-registro.txt" );
 		
 		

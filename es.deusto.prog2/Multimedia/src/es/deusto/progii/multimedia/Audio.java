@@ -9,11 +9,11 @@ public class Audio extends Multimedia {
 	private String colores = "";
 	
 	// Constructores
-	public Imagen() {
+	public void Imagen() {
 	}
 	
-	public Imagen(String nombre, String rutaFichero, int fechaCreacion, int tamaño, int ancho, int alto, int resolucion, int profundidad, String colores) {
-		super(nombre,rutaFichero,fechaCreacion,tamaño);
+	public void Imagen(String nombre, String rutaFichero, int fechaCreacion, int tamaño, int ancho, int alto, int resolucion, int profundidad, String colores) {
+		
 		this.ancho = ancho;
 		this.alto = alto;
 		this.resolucion = resolucion;

@@ -4,7 +4,7 @@ public class Imagen extends Multimedia{
 	
 	// Propiedades
 	private int colores = 0;
-	private TiposImagen tipo = TiposImagen.JPG;
+	protected static TiposImagen tipo = TiposImagen.JPG;
 	
 	// Constructores
 	public Imagen() {

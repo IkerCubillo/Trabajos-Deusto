@@ -15,8 +15,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
-import deustea.Categoria;
-import deustea.Mueble;
 
 public class Main {
 

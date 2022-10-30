@@ -84,7 +84,7 @@ public class VentanaPreparacionPedidos extends JFrame {
 				Pedido cambiar = listaPreparacion.getSelectedValue();
 				modeloPreparacion.removeElement(cambiar);
 				modeloListo.addElement(cambiar);
-				actualizarEstadoPedido(cambiar, LISTO);
+				actualizarEstadoPedido(cambiar, listo);
 			}
 		});
 		botonListoAPreparacion.addActionListener(new ActionListener() {

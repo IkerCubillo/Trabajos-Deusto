@@ -17,7 +17,7 @@ public class Publicacion {
 		this.likes = likes;
 	}
 	
-	public String getUsuario() {
+	public void getUsuario() {
 		
 	}
 	

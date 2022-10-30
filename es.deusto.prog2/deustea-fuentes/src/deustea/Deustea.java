@@ -331,4 +331,9 @@ public class Deustea {
 		regenerarPedidosPorEstado();
 	}
 
+	private static ArrayList<Pedido> read(ObjectInputStream ois) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

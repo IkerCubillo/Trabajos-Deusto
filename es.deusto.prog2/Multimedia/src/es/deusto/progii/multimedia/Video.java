@@ -9,11 +9,11 @@ public class Video extends Multimedia {
 	private String colores = "";
 	
 	// Constructores
-	public Imagen() {
+	public Video() {
 	}
 	
-	public Imagen(String nombre, String rutaFichero, int fechaCreacion, int tamaño, int ancho, int alto, int resolucion, int profundidad, String colores) {
-		super(nombre,rutaFichero,fechaCreacion,tamaño);
+	public Video(String nombre, String rutaFichero, int fechaCreacion, int tamaño, int ancho, int alto, int resolucion, int profundidad, String colores) {
+		super();
 		this.ancho = ancho;
 		this.alto = alto;
 		this.resolucion = resolucion;

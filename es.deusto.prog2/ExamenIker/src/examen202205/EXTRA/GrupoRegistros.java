@@ -1,4 +1,4 @@
-package examen202205;
+package examen202205.EXTRA;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;

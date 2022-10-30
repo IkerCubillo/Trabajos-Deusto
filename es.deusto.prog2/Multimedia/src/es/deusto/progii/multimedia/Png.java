@@ -10,7 +10,7 @@ public class Png extends Imagen {
 	}
 	
 	public Png(String rutaFichero, int colores) {
-		super(rutaFichero,colores);
+		super(rutaFichero,colores, tipo);
 		this.canalAlfa = canalAlfa;
 	}
 	

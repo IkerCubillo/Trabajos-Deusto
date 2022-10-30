@@ -9,7 +9,7 @@ public class Jpg extends Imagen{
 	}
 	
 	public Jpg(String rutaFichero,int colores,int compresion) {
-		super(rutaFichero,colores);
+		super(rutaFichero,colores, tipo);
 		this.compresion = compresion;
 	}
 	
