@@ -1,0 +1,25 @@
+package clasesVisuales;
+
+
+import java.awt.*;
+
+import javax.swing.JFrame;
+
+public class VentanaClasificacion extends JFrame {
+	
+	public VentanaClasificacion() {
+		inicializarVentana();
+	}
+	
+	private void inicializarVentana() {
+		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		this.setTitle("Visualizacion datos GS entre " + 23 + " y " + 45);
+		
+		Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
+		this.setSize( (int) dimension.getWidth()-200, (int) dimension.getHeight()-400);
+	    int x = (int) ((dimension.getWidth() - this.getWidth()) / 2);
+	    int y = (int) ((dimension.getHeight() - this.getHeight()) / 2);
+	    
+	    this.setLocation(x, y);
+	}
+}

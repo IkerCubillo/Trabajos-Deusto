@@ -1,0 +1,16 @@
+package viajes;
+
+public class Avioneta extends Transporte {
+
+	public Avioneta(int nPersonas, String codigo) {
+		super(nPersonas, codigo);
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public void getPrecioPorKm() {
+		// TODO Auto-generated method stub
+
+	}
+
+}

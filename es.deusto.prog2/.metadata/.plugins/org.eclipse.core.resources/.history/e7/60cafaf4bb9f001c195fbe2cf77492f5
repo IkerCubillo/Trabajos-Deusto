@@ -1,0 +1,10 @@
+package viajes;
+
+import java.util.ArrayList;
+
+public class Excursion implements Cobrable{
+	
+	private String nombre = "";
+	private ArrayList<Trayecto> trayectos = new ArrayList<Trayecto>;
+
+}

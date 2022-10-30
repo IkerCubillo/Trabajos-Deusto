@@ -1,0 +1,15 @@
+package carreraCoches;
+
+public class Main {
+	public static void main(String[] args) {
+		for(int i = 1; i <= 10000; i++) {
+			Coche c1 = new Coche("Coche" + i);
+			c1.start();
+		}
+		
+		
+		Thread t1 = new Thread(c1);
+		
+		t1.start();
+	}
+}

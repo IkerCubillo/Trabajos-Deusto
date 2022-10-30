@@ -1,0 +1,7 @@
+package numeros;
+
+public class Dataset {
+	private String nombre;
+	private String propietario;
+	private String datos;
+}

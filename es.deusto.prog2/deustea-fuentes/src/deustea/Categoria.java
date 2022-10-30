@@ -1,0 +1,5 @@
+package deustea;
+
+public enum Categoria {
+	COCINA, CAMAS, ESTANTERIAS, ARMARIOS, DESAYUNO, SILLAS, ALMACENAMIENTO, INFANTIL, SOFAS, MESAS;
+}

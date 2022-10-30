@@ -1,0 +1,20 @@
+package clasesVisuales;
+
+
+import javax.swing.JFrame;
+
+public class VentanaClasificacion extends JFrame {
+	
+	public VentanaClasificacion() {
+		inicializarVentana();
+	}
+	
+	private void inicializarVentana() {
+		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		this.setSize(1000,400);
+		this.setTitle("Visualizacion datos GS entre " + 23 + " y " + 45);
+		this.setLocation(200, 200);
+		
+	}
+
+}

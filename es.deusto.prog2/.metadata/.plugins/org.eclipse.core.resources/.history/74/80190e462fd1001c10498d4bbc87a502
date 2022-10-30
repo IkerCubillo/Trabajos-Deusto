@@ -1,0 +1,9 @@
+package carreraCoches;
+
+public class Main {
+	public static void main(String[] args) {
+		Coche c1 = new Coche();
+		
+		c1.start();
+	}
+}

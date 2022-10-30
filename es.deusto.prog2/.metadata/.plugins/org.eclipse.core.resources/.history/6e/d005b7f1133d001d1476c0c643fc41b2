@@ -1,0 +1,9 @@
+package clasesVisuales;
+
+public class VentanaClasificacion {
+
+	public VentanaClasificacion() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

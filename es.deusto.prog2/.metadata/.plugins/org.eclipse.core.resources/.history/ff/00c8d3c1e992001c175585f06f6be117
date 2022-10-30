@@ -1,0 +1,27 @@
+
+public class Main {
+	public static void main(String[] args) {
+		// Constructor vacio
+		Libro libro1 = new Libro("Rebelión en la granja","George Orwell",1945,"9788499890951");
+		System.out.println(libro1);
+		
+
+		Libro[] estanteria = new Libro[50];
+		
+		// for i in range(10):
+		for(int i = 0; i<30 ;i++) {
+			Libro l = new Libro("Titulo-" + i,
+					"Autor-" + i, 
+					1900 + i,
+					"ISBN-" + i);
+			
+			estanteria[i] = l;
+		}
+		
+		for(int i = 0; i < estanteria.length; i++) {
+			if(estanteria[i] != null) {
+				System.out.println(estanteria[i]);
+			}
+		}
+	}
+}

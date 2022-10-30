@@ -1,0 +1,6 @@
+package hilos;
+
+public class Main {
+	Hilos h = new Hilos();
+
+}

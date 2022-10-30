@@ -1,0 +1,31 @@
+package flotaTransporte;
+
+public class Transporte {
+	public int matricula = 0;
+	public int añoCompra = 0;
+	public String cv = "";
+	public String modelo = "";
+	
+	public Transporte(int matricula, int añoCompra, String cv, String modelo) {
+		this.matricula = matricula;
+		this.añoCompra = añoCompra;
+		this.cv = cv;
+		this.modelo = modelo;
+	}
+
+	public int getMatricula() {
+		return this.matricula;
+	}
+
+	public int getAñoCompra() {
+		return this.añoCompra;
+	}
+
+	public String getCv() {
+		return this.cv;
+	}
+
+	public void setMatricula(int matricula) {
+		this.matricula = matricula;
+	}	
+}

@@ -1,0 +1,10 @@
+package animales;
+
+public class Pez extends Animal {
+
+	public Pez(String nombre, String especie, int edad, int peso, int longitud) {
+		super(nombre, especie, edad, peso, longitud);
+		// TODO Auto-generated constructor stub
+	}
+
+}

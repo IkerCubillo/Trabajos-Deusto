@@ -1,0 +1,67 @@
+
+public class Libreria {
+	
+	// Propiedades
+	
+	private String nombre = "";
+	private String calle = "";
+	private String localidad = "";
+	private String cp = "";
+	private String libros = "";
+	
+	// Constructores
+	public Libreria() {
+		nombre = "";
+		calle = "";
+		localidad = "";
+		cp = "";
+		libros = "";
+	}
+	
+	
+	public Libreria(String nombre, String calle, String localidad, String cp, String libros) {
+		this.nombre = nombre;
+		this.calle = calle;
+		this.localidad = localidad;
+		this.cp = cp;
+		this.libros = libros;
+	}
+	
+	// Getter y setters
+	
+	public String getNombre() {
+		return this.nombre;
+	}
+	public String getCalle() {
+		return this.calle;
+	}
+	public String getLocalidad() {
+		return this.localidad;
+	}
+	public String getCp() {
+		return this.cp;
+	}
+	public String getLibros() {
+		return this.libros;
+	}
+	
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	public void setCalle(String calle) {
+		this.calle = calle;
+	}
+	public void setLocalidad(String localidad) {
+		this.localidad = localidad;
+	}
+	public void setCp(String cp) {
+		this.cp = cp;
+	}
+	public void setLibros(String libros) {
+		this.libros = libros;
+	}
+	// Métodos
+	public String toString() {
+		return this.nombre + " " + this.apellido;
+	}
+}

@@ -1,0 +1,13 @@
+package viajes;
+
+import java.util.ArrayList;
+
+public class Trayecto {
+	private double latitudOrigen = 0.0;
+	private double longitudOrigen = 0.0;
+	private double latitudDestino = 0.0;
+	private double longitudDestino = 0.0;
+	private double distancia = 0.0;
+	private ArrayList<Transporte> transportes = new ArrayList<>(Transporte)();
+
+}

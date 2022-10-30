@@ -1,0 +1,11 @@
+
+public class Main {
+	public static void main(String[] args) {
+		Asignatura asignatura1 = new Asignatura("PO")
+		Estudiante estudiante1 = new Estudiante("Nombre1",00000001,)
+		Grado grado1 = new Grado("Informatica",{estudiante1,estudiante2});
+		System.out.println(Grado);
+		
+		Libro l1 = new Libro("Titulo1","Autor1",1900,"ISBN1");
+	}
+}

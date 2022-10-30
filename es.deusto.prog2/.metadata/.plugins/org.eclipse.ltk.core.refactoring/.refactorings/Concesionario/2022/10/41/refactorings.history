@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;RoundedBorder.java&apos; to &apos;ReproductorJava/src/ud.prog3.pr01&apos;&#x0D;&#x0A;- Original project: &apos;Concesionario&apos;&#x0D;&#x0A;- Destination element: &apos;ReproductorJava/src/ud.prog3.pr01&apos;&#x0D;&#x0A;- Original element: &apos;concesionario.RoundedBorder.java&apos;" description="Copy compilation unit" destination="=ReproductorJava/src&lt;ud.prog3.pr01" element1="/src&lt;concesionario{RoundedBorder.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1665938957642" units="1" version="1.0"/>
+</session>

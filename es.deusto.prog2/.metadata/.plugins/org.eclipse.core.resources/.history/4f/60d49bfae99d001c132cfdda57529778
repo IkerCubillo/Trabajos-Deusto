@@ -1,0 +1,11 @@
+package animales;
+
+public class Mamifero extends Animal {
+	
+	
+
+	public Mamifero(String nombre, String especie, int edad, int peso, int longitud) {
+		super(nombre, especie, edad, peso, longitud);
+	}
+
+}

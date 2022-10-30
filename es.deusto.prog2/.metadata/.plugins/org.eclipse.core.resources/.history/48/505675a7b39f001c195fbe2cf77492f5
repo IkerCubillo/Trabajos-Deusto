@@ -1,0 +1,5 @@
+package es.deusto.progii.multimedia;
+
+public enum TiposImagen {
+
+}

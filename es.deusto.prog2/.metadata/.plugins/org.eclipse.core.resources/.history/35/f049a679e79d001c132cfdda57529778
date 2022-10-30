@@ -1,0 +1,10 @@
+package flotaTransporte;
+
+public class Taxi extends Transporte {
+
+	public Taxi(int matricula, int añoCompra, String cv, String modelo) {
+		super(matricula, añoCompra, cv, modelo);
+		// TODO Auto-generated constructor stub
+	}
+
+}

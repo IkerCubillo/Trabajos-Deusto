@@ -1,0 +1,21 @@
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+
+public class LeeFrases {
+	
+	public static void main(String[] args) {
+		ArrayList<String> aFrases = new ArrayList<String>();	
+		try{
+            FileReader fr=new FileReader("frases.txt");
+            int valor=fr.read();
+            while(valor!=-1){
+                System.out.print((char)valor);
+                valor=fr.read();
+            }            
+            fr.close();
+        }catch(IOException e){
+            System.out.println("Error E/S: "+e);
+        }
+	}
+}

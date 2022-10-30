@@ -1,0 +1,23 @@
+package es.deusto.progii.multimedia.main;
+
+import java.util.ArrayList;
+
+import es.deusto.progii.multimedia.*;
+
+public class Main2 {
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		ArrayList<Png> aPNG = new ArrayList<Png>();
+		aPNG.add(p);
+		aPNG.add(p);
+		aPNG.add(p);
+		aPNG.add(p);
+		aPNG.add(p);
+		aPNG.add(p);
+		aPNG.remove(p);
+		
+	}
+
+}

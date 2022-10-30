@@ -1,0 +1,20 @@
+package clasesVisuales;
+
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+
+public class TablaDatos extends JTable{
+	
+	protected String[] columnNames;
+    protected Object[][] datos;
+    
+	public TablaDatos(String[] columnNames, Object[][] datos) {
+		super();
+		this.columnNames = columnNames;
+		this.datos = datos;
+	}
+    
+	DefaultTableModel dtm = new DefaultTableModel(datos, columnNames);
+    final JTable table = new JTable(dtm);
+    
+}

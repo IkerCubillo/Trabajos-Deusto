@@ -1,0 +1,10 @@
+
+public class Main {
+	public static void main() {
+		// Constructor vacio
+		Libro libro1 = new Libro("Rebelión en la granja","George Orwell",1945,"9788499890951");
+		System.out.println(libro1);
+		
+	}
+}
+

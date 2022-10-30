@@ -1,0 +1,5 @@
+package examen202106ordpreparatorio;
+
+public enum EspecialidadMedica {
+	GENERAL, OTORRINO, RESPIRATORIO, DIGESTIVO, TRAUMA, INTERNA, DERMATOLOGIA;
+}

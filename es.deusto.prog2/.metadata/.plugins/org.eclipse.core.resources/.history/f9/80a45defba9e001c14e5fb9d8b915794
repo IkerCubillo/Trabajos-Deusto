@@ -1,0 +1,16 @@
+package animales;
+
+public class Reptil extends Animal {
+	
+	private String venenoso = "no";
+
+	public Reptil(String nombre, String especie, int edad, int peso, int longitud, String venenoso) {
+		super(nombre, especie, edad, peso, longitud);
+		this.venenoso = venenoso;
+	}
+	
+	public String getVenenoso() {
+		return this.venenoso;
+	}
+
+}

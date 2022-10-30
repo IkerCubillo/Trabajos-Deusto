@@ -1,0 +1,14 @@
+package redSocial;
+
+public class Texto extends Publicacion {
+
+	public Texto() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Texto(String usuario, int fechaPublicacion, int likes, String tipo) {
+		super(usuario, fechaPublicacion, likes, tipo);
+		// TODO Auto-generated constructor stub
+	}
+
+}

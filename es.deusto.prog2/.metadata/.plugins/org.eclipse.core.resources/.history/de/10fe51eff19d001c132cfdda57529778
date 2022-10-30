@@ -1,0 +1,10 @@
+package redSocial;
+
+public class Usuario {
+	private String nombre = "";
+	private int fechaCreacion = 0;
+	private Usuario[] seguidores;
+	private Usuario[] siguiendo;
+	
+	
+}

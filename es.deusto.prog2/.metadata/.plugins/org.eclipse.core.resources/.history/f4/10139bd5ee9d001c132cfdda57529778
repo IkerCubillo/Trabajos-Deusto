@@ -1,0 +1,14 @@
+package main;
+
+import animales.*;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Ave a = new Ave("Jerson","pato",18,65,178,"cuack",28,"amarillo");
+		System.out.println(a);
+
+	}
+
+}

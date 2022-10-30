@@ -1,0 +1,35 @@
+package hilos;
+
+import java.awt.Frame;
+import java.awt.HeadlessException;
+import java.awt.event.ActionEvent;
+
+import javax.swing.JButton;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class Hilos extends Frame{
+	
+	private JPanel pPrincipal;
+	private JTextField tF;
+	private JButton btnStart;
+	private JButton btnFinish;
+	
+	
+	public Hilos() {
+		inicializar();
+	}
+	
+	public void inicializar() {
+		this.setSize(400,400);
+		this.setVisible(true);
+		
+		pPrincipal = new JPanel();
+		tF = new JTextField(Counter);
+		btnStart = new JButton();
+		
+		this.add(pPrincipal);
+		
+		pPrincipal.add(tf);
+	}
+}

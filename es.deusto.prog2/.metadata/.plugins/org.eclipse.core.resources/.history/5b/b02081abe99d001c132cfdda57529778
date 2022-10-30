@@ -1,0 +1,24 @@
+/**
+ * 
+ */
+package animales;
+
+/**
+ * @author i.cubillo
+ *
+ */
+public class Mamifero extends Animal {
+
+	/**
+	 * @param nombre
+	 * @param especie
+	 * @param edad
+	 * @param peso
+	 * @param longitud
+	 */
+	public Mamifero(String nombre, String especie, int edad, int peso, int longitud) {
+		super(nombre, especie, edad, peso, longitud);
+		// TODO Auto-generated constructor stub
+	}
+
+}

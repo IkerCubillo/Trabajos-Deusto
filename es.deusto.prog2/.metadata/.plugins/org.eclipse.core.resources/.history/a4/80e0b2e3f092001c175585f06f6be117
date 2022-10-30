@@ -1,0 +1,36 @@
+
+public class Grado {
+	
+	// Propiedades
+	
+	private String nombre = "";
+	private Estudiante[] estudiantes;
+	
+	// Constructores
+	public Grado() {}
+	
+	public Grado(String nombre, Estudiante[] estudiantes) {
+		this.nombre = nombre;
+		this.estudiantes = estudiantes;
+	}
+	
+	public Grado(Grado l) {
+		this.nombre = l.nombre;
+		this.estudiantes = l.estudiantes;
+	}
+	// Getter y setters
+	
+	public String getNombre() {
+		return this.nombre;
+	}
+	public Estudiante[] getestudiantes() {
+		return this.estudiantes;
+	}
+	
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	public void setestudiantes(Estudiante[] estudiantes) {
+		this.estudiantes = estudiantes;
+	}
+}

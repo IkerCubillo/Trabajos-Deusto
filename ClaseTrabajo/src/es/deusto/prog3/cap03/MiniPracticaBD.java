@@ -76,11 +76,48 @@ public class MiniPracticaBD {
 		p.add( bAnyadir );
 		JButton bBorrar = new JButton( "Borrar nick" );
 		p.add( bBorrar );
+		JButton bCContrasenya = new JButton( "Cambiar contrase�a" );
+		p.add( bCContrasenya );
+		JButton bBuscar = new JButton( "Buscar por nick" );
+		bBuscar.setToolTipText("Pulsa para buscar un nick concreto, el que se teclea en el campo Nick");
+		p.add(bBuscar);
 		pSuperior.add( p, BorderLayout.SOUTH );
 		ventana.add( pSuperior, BorderLayout.NORTH );  // Panel de datos al norte
 		ventana.add( new JScrollPane( tUsuarios ), BorderLayout.CENTER );  // JTable al center
 		ventana.pack();
 		ventana.setVisible( true );
+		
+		bBuscar.addActionListener( (e) -> {
+			// BD - select nick from Usuario where nick = 'valor'
+			String sent = "select nick from Usuario where nick = '" + secu(tfUsuario.getText()) + "'";
+			
+			try {
+				logger.log( Level.INFO, "BD: " + sent);
+				ResultSet rs = s.executeQuery(sent);
+				if (rs.next()) {
+					JOptionPane.showMessageDialog( ventana, "Usuario " + tfUsuario.getText() + " existe" );
+				} else {
+					JOptionPane.showMessageDialog( ventana, "El usuario no existe" );
+				}
+			} catch (SQLException e1) {
+				System.out.println("Ultimo comando: " + sent);
+				e1.printStackTrace();
+			}			
+		});
+		
+		bCContrasenya.addActionListener( (e) -> {
+			// update Usuario set pass = valor where nicj = nick
+			String sent = "update Usuario set pass = '" + secu(tfPassword.getText()) + "' where nick = '"+ secu(tfUsuario.getText()) +"'";
+			try {
+				s.executeUpdate(sent);
+				logger.log(Level.INFO, "BD: " + sent);
+			} catch (Exception e2) {
+				// TODO: handle exception
+				System.out.println("Ultimo comando: " + sent);
+				e2.printStackTrace();
+			}
+		});
+		
 		bAnyadir.addActionListener( new ActionListener() { // Acción de añadir usuario
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -140,6 +177,32 @@ public class MiniPracticaBD {
 				actualizaTabla();
 			}
 		});
+		bCContrasenya.addActionListener( new ActionListener() { // Acción de borrar usuario
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if (!tfUsuario.getText().isEmpty() && !tfPassword.getText().isEmpty()) {
+					String com = "";
+					try {
+						// Borrar usuario - delete from Usuario where nick = 'valor'
+						com = "update Usuario set pass = '" + secu(tfPassword.getText()) + "' where nick = '"+ secu(tfUsuario.getText()) +"'";
+						logger.log( Level.INFO, "BD: " + com );
+						int numFilasCambiadas = s.executeUpdate( com );
+						if(numFilasCambiadas == 0) {
+							JOptionPane.showMessageDialog( ventana, "No exis�a un usuario con ese nick " + tfUsuario.getText() );
+						}
+					} catch (SQLException e2) {
+						System.out.println( "Último comando: " + com );
+						e2.printStackTrace();
+					}
+				} else {
+					JOptionPane.showMessageDialog( ventana, "Debes rellenar los dos campos" );
+				}
+				actualizaTabla();
+			}
+		});
+		
+		
+//		statement.executeUpdate( "update persona set nombre = 'Aitziber' where id = 2" );
 		ventana.addWindowListener( new WindowAdapter() {
 			@Override
 			public void windowClosing(WindowEvent e) {

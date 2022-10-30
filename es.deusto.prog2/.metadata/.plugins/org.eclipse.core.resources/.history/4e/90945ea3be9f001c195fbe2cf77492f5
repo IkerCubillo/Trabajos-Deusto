@@ -1,0 +1,18 @@
+package viajes;
+
+public class Transporte {
+	private int nPersonas = 0;
+	private String codigo = "0000";
+	
+	
+	Para cada transporte queremos guardar el número de personas que admite y un código
+	único generado automáticamente a partir de un contador común. Además, todos los
+	transportes tendrán un método getPrecioPorKm() que se calculará de manera diferente
+	para cada tipo de transporte. En el caso de los barcos, necesitaremos almacenar su
+	calado (double) y si son diesel o no (boolean) y getPrecioPorKm se calculará
+	multiplicando su calado por 1.5 si no es diesel o multiplicando su calado por 0.8 si es
+	diesel. En el caso de las avionetas, necesitaremos almacenar su peso (double) y su
+	coeficiente de planeo (double) y y getPrecioPorKm se calculará dividiendo su peso
+	entre su coeficiente de planeo.
+
+}

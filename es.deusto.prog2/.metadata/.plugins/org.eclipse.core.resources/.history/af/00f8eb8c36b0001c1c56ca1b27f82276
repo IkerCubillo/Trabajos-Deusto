@@ -1,0 +1,40 @@
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+
+public class CSV {
+	public static void main(String[] args) {
+		ArrayList<String> aFrases = new ArrayList<String>();
+		String ruta = null;
+			
+		aFrases.add("Hola Patito");
+		aFrases.add("Hola Patito");
+		aFrases.add("Hola Patito");
+		aFrases.add("Hola Patito");
+		aFrases.add("Hola Patito");
+		aFrases.add("Hola Patito");
+		aFrases.add("Hola Patito");
+			
+			
+		// Escritura Fichero
+		FileWriter fw;
+		try {
+			fw = new FileWriter("frases.csv");
+			for(String frase : aFrases) {
+				fw.write(frase);
+			}
+			fw.close();
+			
+		} catch (IOException e) {
+			e.printStackTrace(); 
+		}
+	}
+}
+
+FileWriter csvWriter = new FileWriter("new.csv");
+csvWriter.append("Name");
+csvWriter.append(",");
+csvWriter.append("Role");
+csvWriter.append(",");
+csvWriter.append("Topic");
+csvWriter.append("n");

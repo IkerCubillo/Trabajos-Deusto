@@ -1,0 +1,15 @@
+package animales;
+
+public class Mamifero extends Animal {
+	
+	private int camada = 0;
+	
+	public Mamifero(String nombre, String especie, int edad, int peso, int longitud, String sonido, int camada) {
+		super(nombre, especie, edad, peso, longitud, sonido);
+		this.camada = camada;
+	}
+	
+	public int getCamada() {
+		return this.camada;
+	}
+}

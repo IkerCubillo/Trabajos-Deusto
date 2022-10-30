@@ -1,0 +1,16 @@
+package clasesVisuales;
+
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+
+public class TablaDatos{
+	String[] columnNames = {"Nombre", "Años", "Apto",};
+    Object[][] datos = {
+        {"Juan", 25, false},
+        {"Sonia", 33, true},
+        {"Pedro", 42, false}};
+
+    DefaultTableModel dtm = new DefaultTableModel(datos, columnNames);
+    final JTable table = new JTable(dtm);
+
+}

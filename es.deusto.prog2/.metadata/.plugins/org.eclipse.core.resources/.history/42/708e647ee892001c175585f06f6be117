@@ -1,0 +1,15 @@
+
+public class Main1 {
+	public static void main(String[] args) {
+		Libro l1 = new Libro("Titulo1","Autor1",1900,"ISBN1");
+		Libro l2 = new Libro("Titulo2","Autor2",1900,"ISBN2");
+		Libro l3 = new Libro("Titulo3","Autor3",1900,"ISBN3");
+		
+		System.out.println(l1.getPropiedadEstatica());
+		System.out.println(l1.getTitulo());
+		System.out.println(l2.getPropiedadEstatica());
+		l2.setPropiedadEstatica(10);
+		System.out.println(l2.getTitulo());
+		System.out.println(l3.getPropiedadEstatica());
+		System.out.println(l3.getTitulo());
+}

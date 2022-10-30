@@ -1,0 +1,42 @@
+PrecioCarburante	17/04/2022 sdf	Repsol	GASOLEO_A	1.723
+PrecioCarburante	17/04/2022 8:00	Repsol	GASOLINA_95	1.765
+PrecioCarburante	17/04/2022 10:00	Repsol	GASOLINA_98	1.894
+PrecioCarburante	17/04/2022 12:00	Cepsa	GASOLEO_A	1.696
+PrecioCarburante	17/04/2022 14:00	Cepsa	GASOLINA_95	1.742
+PrecioCarburante	17/04/2022 16:00	Cepsa	GASOLINA_98	1.841
+PrecioCarburante	17/04/2022 18:00	Shell	GASOLEO_A	1.650
+PrecioCarburante	17/04/2022 20:00	Shell	GASOLINA_95	1.703
+PrecioCarburante	17/04/2022 22:00	Shell	GASOLINA_98	1.828
+PrecioCarburante	18/04/2022 6:00	Repsol	GASOLEO_A	1.733
+PrecioCarburante	18/04/2022 8:00	Repsol	GASOLINA_95	1.757
+PrecioCarburante	18/04/2022 10:00	Repsol	GASOLINA_98	1.884
+PrecioCarburante	18/04/2022 12:00	Cepsa	GASOLEO_A	1.706
+PrecioCarburante	18/04/2022 14:00	Cepsa	GASOLINA_95	1.734
+PrecioCarburante	18/04/2022 16:00	Cepsa	GASOLINA_98	1.831
+PrecioCarburante	18/04/2022 18:00	Shell	GASOLEO_A	1.659
+PrecioCarburante	18/04/2022 20:00	Shell	GASOLINA_95	1.695
+PrecioCarburante	18/04/2022 22:00	Shell	GASOLINA_98	1.818
+PrecioElectricidad	14/04/2022 01:00	0.277
+PrecioElectricidad	15/04/2022 19:30	0.480
+PrecioElectricidad	16/04/2022 20:00	0.439
+PrecioElectricidad	16/04/2022 23:00	0.274
+PrecioElectricidad	17/04/2022 05:00	0.245
+PrecioElectricidad	17/04/2022 20:00	0.464
+PrecioElectricidad	18/04/2022 16:00	0.310
+DuracionSesion	13/04/2022 17:24	andoni	48250
+DuracionSesion	14/04/2022 10:32	elena	93500
+DuracionSesion	15/04/2022 18:15	andoni	123000
+DuracionSesion	16/04/2022 11:07	elena	518000
+DuracionSesion	17/04/2022 09:30	andoni	18500
+DuracionSesion	17/04/2022 13:03	elena	15000
+DuracionSesion	18/04/2022 08:59	elena	37800
+DuracionSesion	18/04/2022 19:10	andoni	25500
+Consulta	14/04/2022 08:04	janire	Consulta de operaciones	5	89300
+Consulta	14/04/2022 17:25	andoni	Consulta de operaciones	9	128500
+Consulta	15/04/2022 09:12	lucas	Queja de servicio	3	132000
+Consulta	16/04/2022 14:15	andoni	Consulta de operaciones	9	90000
+Consulta	18/04/2022 10:39	andoni	Consulta de operaciones	9	92500
+Consulta	17/04/2022 14:32	janire	Consulta de operaciones	7	45500
+Consulta	17/04/2022 11:57	itziar	Consulta de operaciones	10	51000
+Consulta	18/04/2022 10:39	andoni	Consulta de operaciones	9	92500
+Consulta	18/04/2022 21:05	elena	Queja de servicio	2	62500

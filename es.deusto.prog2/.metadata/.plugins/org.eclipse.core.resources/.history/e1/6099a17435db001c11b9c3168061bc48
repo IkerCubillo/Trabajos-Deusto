@@ -1,0 +1,192 @@
+package concesionario;
+
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+import java.awt.Rectangle;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
+import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+
+
+@SuppressWarnings("serial")
+public class VentanaConcesionario extends JFrame {
+	protected JPanel pCentral;
+	protected JPanel pDerecha;
+	
+	protected JPanel pModelo;
+	protected JPanel pColores;
+	protected JPanel pLlantas;
+	protected JPanel pInterior;
+	
+	protected JLabel lSModelo;
+	protected JLabel lSColor;
+	protected JLabel lSLlanta;
+	protected JLabel lSInterior;
+	
+	protected JLabel lDModelo;
+	protected JLabel lDColor;
+	protected JLabel lDLlanta;
+	protected JLabel lDInterior;
+	
+	protected JButton bModelo;
+	protected JButton bBlanco;
+	protected JButton bNegro;
+	protected JButton bGris;
+	protected JButton bAzul;
+	protected JButton bRojo;
+	
+	protected JButton bLAero;
+	protected JButton bLSport;
+	
+	protected JButton bIBlanco;
+	protected JButton bINegro;
+	
+	
+	public VentanaConcesionario() {
+		// TODO Auto-generated constructor stub
+		inicializar();
+		setVisible(true);
+	}
+	
+	private void inicializar() {
+		// Diseño Ventana
+		this.setSize(1440,861);
+		this.setTitle("Concesionario");
+		
+		// Inicializar componentes
+		pCentral 	= new JPanel();
+		pDerecha 	= new JPanel();
+		pModelo 	= new JPanel();
+		pColores 	= new JPanel();
+		pLlantas 	= new JPanel();
+		pInterior 	= new JPanel();
+		
+		lSModelo 	= new JLabel("Seleccionar modelo");
+		lSColor 	= new JLabel("Seleccionar pintura");
+		lSLlanta 	= new JLabel("Seleccionar llantas");
+		lSInterior 	= new JLabel("Seleccionar interior");
+		
+		lDModelo 	= new JLabel("Seleccionar modelo");
+		lDColor		= new JLabel("Blanco perla multicapa	Incluido");
+		lDLlanta 	= new JLabel("llanata");
+		lDInterior 	= new JLabel("interior");
+				
+		try { // Como Comprobar???
+			bModelo = new JButton( new ImageIcon("src/img/Modelo3.png") );
+			botonConfiguracion(bModelo);
+			bBlanco = new JButton( new ImageIcon("src/img/ColorBlanco.png") );
+			botonConfiguracion(bBlanco);
+			bNegro = new JButton( new ImageIcon( "src/img/ColorNegro.png" ));
+			botonConfiguracion(bNegro);
+			bGris = new JButton( new ImageIcon("src/img/ColorGris.png")  );
+			botonConfiguracion(bGris);
+			bAzul = new JButton( new ImageIcon("src/img/ColorAzul.png")  );
+			botonConfiguracion(bAzul);
+			bRojo = new JButton( new ImageIcon("src/img/ColorRojo.png") );
+			botonConfiguracion(bRojo);
+			
+			bLAero = new JButton( new ImageIcon("src/img/LlantaAero.png") );
+			botonConfiguracion(bLAero);
+			bLSport = new JButton( new ImageIcon( "src/img/LlantaSport.png" ));
+			botonConfiguracion(bLSport);
+			
+			bIBlanco = new JButton( new ImageIcon("src/img/InteriorBlanco.png")  );
+			botonConfiguracion(bIBlanco);
+			bINegro = new JButton( new ImageIcon("src/img/InteriorNegro.png")  );
+			botonConfiguracion(bINegro);
+		} catch (Exception e1) {  // ERROR Si hay error, botones texto
+			bModelo = new JButton("Model 3");
+			bBlanco = new JButton( "Blanco" );
+			bNegro 	= new JButton( "Negro" );
+			bGris	= new JButton( "Gris" );
+			bAzul 	= new JButton( "Azul" );
+			bRojo 	= new JButton( "Rojo" );
+			
+			bLAero 	= new JButton("Llanta Aero");
+			bLSport = new JButton("Llanta Sport");
+			
+			bIBlanco = new JButton("Blanco");
+			bINegro = new JButton("Negro");
+		}
+		// Añadir componentes
+		getContentPane().add( pCentral, BorderLayout.CENTER );
+		getContentPane().add( pDerecha, BorderLayout.EAST );
+		
+		pDerecha.setLayout( new BoxLayout( pDerecha, BoxLayout.Y_AXIS ) );
+		
+		pModelo.setLayout(new BorderLayout());
+		pColores.setLayout(new BorderLayout());
+		pLlantas.setLayout(new BorderLayout());
+		pInterior.setLayout(new BorderLayout());
+		
+		pDerecha.add(pModelo);
+		pDerecha.add(pColores);
+		pDerecha.add(pLlantas);
+		pDerecha.add(pInterior);
+		
+		JPanel pIModelo = new JPanel();
+		JPanel pIColores = new JPanel();
+		JPanel pILlantas = new JPanel();
+		JPanel pIInterior = new JPanel();
+		
+		pModelo.add(lSModelo, BorderLayout.NORTH);
+		pModelo.add(pIModelo, BorderLayout.CENTER);
+		pModelo.add(lDModelo, BorderLayout.SOUTH);
+		
+		pIModelo.add(bModelo);
+		
+		pColores.add(lSColor, BorderLayout.NORTH);
+		pColores.add(pIColores, BorderLayout.CENTER);
+		pColores.add(lDColor, BorderLayout.SOUTH);
+		
+		pIColores.add(bBlanco);
+		pIColores.add(bNegro);
+		pIColores.add(bGris);
+		pIColores.add(bAzul);
+		pIColores.add(bRojo);
+		
+		pLlantas.add(lSLlanta, BorderLayout.NORTH);
+		pLlantas.add(pILlantas, BorderLayout.CENTER);
+		pLlantas.add(lDLlanta, BorderLayout.SOUTH);
+		
+		pILlantas.add(bLAero);
+		pILlantas.add(bLSport);
+		
+		pInterior.add(lSInterior, BorderLayout.NORTH);
+		pInterior.add(pIInterior, BorderLayout.CENTER);
+		pInterior.add(lDInterior, BorderLayout.SOUTH);
+		
+		pIInterior.add(bIBlanco);
+		pIInterior.add(bINegro);
+		
+		// Gestionar eventos
+		this.addWindowListener(new WindowAdapter() {
+			public void windowClosing(WindowEvent e) {
+				System.exit(0);
+			}
+		});			
+		
+	}
+	
+	public void botonConfiguracion(JButton boton) {
+		boton.setOpaque(false);
+		boton.setContentAreaFilled(false);
+		boton.setBorderPainted(false);
+	}
+	
+	public void botonPulsado(){
+			
+	}
+
+}

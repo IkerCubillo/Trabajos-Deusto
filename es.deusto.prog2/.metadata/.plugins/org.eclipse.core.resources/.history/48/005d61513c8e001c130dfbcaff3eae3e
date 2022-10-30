@@ -1,0 +1,58 @@
+
+public class Libro {
+	
+	// Propiedades
+	
+	private String titulo = "";
+	private String autor = "";
+	private int año = 0;
+	private String isbn = "";
+	
+	// Constructores
+	public Libro() {
+		titulo = "";
+		autor = "";
+		año = 0;
+		isbn = "";
+	}
+	
+	
+	public Libro(String titulo, String autor, int año, String isbn) {
+		this.titulo = titulo;
+		this.autor = autor;
+		this.año = año;
+		this.isbn = isbn;
+	}
+	
+	// Getter y setters
+	
+	public String getTitulo() {
+		return this.titulo;
+	}
+	public String getAutor() {
+		return this.autor;
+	}
+	public int getAño() {
+		return this.año;
+	}
+	public String getIsbn() {
+		return this.isbn;
+	}
+	
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
+	public void setAutor(String autor) {
+		this.autor = autor;
+	}
+	public void setAño(int año) {
+		this.año = año;
+	}
+	public void setIsbn(String isbn) {
+		this.isbn = isbn;
+	}
+	// Métodos
+	public String toString() {
+		return this.titulo + " " + this.autor;
+	}
+}

@@ -1,0 +1,47 @@
+
+public class Estudiante {
+	
+	// Propiedades
+	private String nombre = "";
+	private int dni = "";
+	private int curso = 0;
+	private Asignatura[] matricula;
+	
+	// Constructores
+	
+	
+	public Estudiante(String nombre, int dni, int curso, Asignatura[] matricula) {
+		this.nombre = nombre;
+		this.dni = dni;
+		this.curso = curso;
+		this.matricula = matricula;
+	}
+	
+	public Estudiante(Estudiante l) {
+		this.nombre = l.nombre;
+		this.dni = l.dni;
+		this.curso = l.curso;
+		this.matricula = l.matricula;
+	}
+	
+	// Getter y setters
+	}
+	public String getNombre() {
+		return this.nombre;
+	}
+	public int getDni() {
+		return this.dni;
+	}
+	public int getCurso() {
+		return this.curso;
+	}
+	public Asignatura[] getMatricula() {
+		return this.matricula;
+	}
+	
+	
+	// Métodos
+	public String toString() {
+		return "nombre: " + this.nombre + ";dni: " + this.dni;
+	}
+}

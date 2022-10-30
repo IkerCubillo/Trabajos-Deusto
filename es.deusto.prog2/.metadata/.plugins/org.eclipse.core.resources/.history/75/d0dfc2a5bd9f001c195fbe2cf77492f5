@@ -1,0 +1,53 @@
+package viajes;
+
+import java.util.ArrayList;
+
+public class Excursion implements Cobrable{
+	
+	private String nombre = "";
+	private ArrayList<Trayecto> trayectos = new ArrayList<Trayecto>();
+	private boolean pagada = false;
+	
+	public Excursion(String nombre, ArrayList<Trayecto> trayectos, boolean pagada) {
+		this.nombre = nombre;
+		this.trayectos = trayectos;
+		this.pagada = pagada;
+	}
+	
+	
+
+	public String getNombre() {
+		return nombre;
+	}
+	public ArrayList<Trayecto> getTrayectos() {
+		return trayectos;
+	}
+	public boolean isPagada() {
+		return pagada;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	public void setTrayectos(ArrayList<Trayecto> trayectos) {
+		this.trayectos = trayectos;
+	}
+	public void setPagada(boolean pagada) {
+		this.pagada = pagada;
+	}
+
+
+
+	public double calcularCoste() {
+		
+		coste de todos sus
+		trayectos (distancia x getPrecioPorKm() del transporte usado).
+		return (this.precio * this.nPersonas);
+	}
+
+	@Override
+	public boolean cobrar() {
+		this.pagada = true;
+		return true;
+	}
+}

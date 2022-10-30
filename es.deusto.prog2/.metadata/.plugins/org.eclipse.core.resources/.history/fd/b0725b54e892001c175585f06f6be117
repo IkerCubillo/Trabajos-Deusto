@@ -1,0 +1,65 @@
+
+public class Libro {
+	
+	// Propiedades
+	orivate static int propiedadEstatica = 0;
+	private String titulo = "";
+	private String autor = "";
+	private int anyo = 0;
+	private String isbn = "";
+	
+	// Constructores
+	
+	
+	public Libro(String titulo, String autor, int anyo, String isbn) {
+		this.titulo = titulo;
+		this.autor = autor;
+		this.anyo = anyo;
+		this.isbn = isbn;
+	}
+	
+	public Libro(Libro l) {
+		this.titulo = l.titulo;
+		this.autor = l.autor;
+		this.anyo = l.anyo;
+		this.isbn = l.isbn;
+	}
+	
+	// Getter y setters
+	
+	public int getPropiedadEstatica(){
+		return propiedadEstatica;
+	}
+	public int setPropiedadEstatica(){
+		propiedadEstatica = valor;
+	}
+	public String getTitulo() {
+		return this.titulo;
+	}
+	public String getAutor() {
+		return this.autor;
+	}
+	public int getAnyo() {
+		return this.anyo;
+	}
+	public String getIsbn() {
+		return this.isbn;
+	}
+	
+	//public void setTitulo(String titulo) {
+		//this.titulo = titulo;
+	//}
+	//public void setAutor(String autor) {
+		//this.autor = autor;
+	//}
+	//public void setAnyo(int anyo) {
+		//this.anyo = anyo;
+	//}
+	//public void setIsbn(String isbn) {
+		//this.isbn = isbn;
+	//}
+	// Métodos
+	public String toString() {
+		return "Titulo: " + this.titulo + ";autor: " + this.autor;
+	}
+}

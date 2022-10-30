@@ -1,0 +1,47 @@
+
+public class Asignatura {
+	
+	// Propiedades
+	private String nombre = "";
+	private int codigo = 0;
+	private int curso = 0;
+	private int creditos = 0;
+	
+	// Constructores
+	
+	
+	public Asignatura(String nombre, int codigo, int curso, int creditos) {
+		this.nombre = nombre;
+		this.codigo = codigo;
+		this.curso = curso;
+		this.creditos = creditos;
+	}
+	
+	public Asignatura(Asignatura l) {
+		this.nombre = l.nombre;
+		this.codigo = l.codigo;
+		this.curso = l.curso;
+		this.creditos = l.creditos;
+	}
+	
+	// Getter y setters
+	
+	public String getnombre() {
+		return this.nombre;
+	}
+	public int getcodigo() {
+		return this.codigo;
+	}
+	public int getcurso() {
+		return this.curso;
+	}
+	public int getcreditos() {
+		return this.creditos;
+	}
+	
+
+	// Métodos
+	public String toString() {
+		return "nombre: " + this.nombre + ";codigo: " + this.codigo;
+	}
+}

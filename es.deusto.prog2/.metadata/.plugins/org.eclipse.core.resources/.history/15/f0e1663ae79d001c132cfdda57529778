@@ -1,0 +1,10 @@
+package flotaTransporte;
+
+public class Autobus extends Transporte {
+
+	public Autobus(int matricula, int añoCompra, String cv, String modelo) {
+		super(matricula, añoCompra, cv, modelo);
+		// TODO Auto-generated constructor stub
+	}
+
+}

@@ -1,0 +1,17 @@
+
+public class Main {
+	public static void main(String[] args) {
+		int[] array = new int[0];
+		
+		for(int i = 3; i>=0 ;i--) {
+			Contador l = new Contador(i);
+			
+			numero[i] = l;
+		}
+		
+		for(int i = 0; i < estanteria.length; i++) {
+			if(estanteria[i] != null) {
+				System.out.println(estanteria[i]);
+		}
+	}
+}

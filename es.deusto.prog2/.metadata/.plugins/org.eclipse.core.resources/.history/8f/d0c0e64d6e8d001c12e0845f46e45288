@@ -1,0 +1,8 @@
+
+public class Main {
+	public static void main(String[] args) {
+		Estudiantes e1 = new Estudiantes("Bruce","Wayne",0,"48007");
+		e1.setNombre("Alfred");
+		System.out.println(e1);
+	}
+}

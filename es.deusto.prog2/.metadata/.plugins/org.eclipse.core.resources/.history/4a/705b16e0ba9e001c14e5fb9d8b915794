@@ -1,0 +1,23 @@
+package animales;
+
+public class Pez extends Animal {
+	
+	private int velocidad = 0;
+	private boolean aguaDulce = true;
+	
+	public Pez(String nombre, String especie, int edad, int peso, int longitud, int velocidad, boolean aguaDulce) {
+		super(nombre, especie, edad, peso, longitud);
+		this.velocidad = velocidad;
+		this.aguaDulce = aguaDulce;
+	}
+
+	public int getVelocidad() {
+		return this.velocidad;
+	}
+	public boolean getAgua() {
+		return this.aguaDulce;
+	}
+	
+	
+
+}

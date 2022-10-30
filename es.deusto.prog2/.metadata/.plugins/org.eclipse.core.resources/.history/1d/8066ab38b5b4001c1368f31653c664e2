@@ -1,0 +1,9 @@
+
+public class IllegalInputException extends Exception {
+
+	public IllegalInputException() {
+		// TODO Auto-generated constructor stub
+		private String exceptionType = "";
+	}
+
+}

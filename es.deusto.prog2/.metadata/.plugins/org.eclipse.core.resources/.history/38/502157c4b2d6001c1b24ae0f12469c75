@@ -1,0 +1,58 @@
+package examen202106ordpreparatorio;
+
+import java.awt.Color;
+import java.util.Date;
+
+import javax.swing.JOptionPane;
+
+import examen202106ordpreparatorio.Cita;
+import examen202106ordpreparatorio.VentanaAgenda;
+
+public class CitaMedica extends Cita{
+	private static final long serialVersionUID = 1L; // Versión para la serialización
+	protected static final Color COLOR_FONDO = new Color( 0, 255, 0, 53 ); // Color verde traslúcido para fondo 
+	//================= Parte no static
+
+		protected EspecialidadMedica especialidadMedica;     // Tipo de la tarea
+		
+	public CitaMedica(VentanaAgenda ventana, Date fechaHora, int duracionMins, EspecialidadMedica tipoMedico) {
+		super(ventana, fechaHora, duracionMins);
+		setColorFondo( COLOR_FONDO );
+		especialidadMedica = tipoMedico;
+		// TODO Auto-generated constructor stub
+	}
+	
+	public EspecialidadMedica getEspecialidadMedica() {
+		return especialidadMedica;
+	}
+
+	public void setEspecialidadMedica(EspecialidadMedica especialidadMedica) {
+		this.especialidadMedica = especialidadMedica;
+		setText( toString() );
+	}
+	 
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (!(obj instanceof CitaMedica)) return false;
+		CitaMedica t2 = (CitaMedica) obj;
+		return super.equals(obj) && especialidadMedica.equals(t2.especialidadMedica);
+	}
+	
+	@Override
+	public String toString() {
+		return super.toString() + " " + especialidadMedica;
+	}
+
+
+	@Override
+	public void editar() {
+		// TODO Auto-generated method stub
+		super.editar();
+		Object entrada = JOptionPane.showInputDialog( ventana, "Edita o confirma la descripción de la cita:", "Edición", JOptionPane.INFORMATION_MESSAGE, null, EspecialidadMedica.values(), especialidadMedica );
+		if (entrada!=null) {
+			setEspecialidadMedica( (EspecialidadMedica) entrada );
+		}
+	}
+
+}

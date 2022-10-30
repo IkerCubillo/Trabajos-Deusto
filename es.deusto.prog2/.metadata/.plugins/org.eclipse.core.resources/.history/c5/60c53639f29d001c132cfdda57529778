@@ -1,0 +1,26 @@
+package redSocial;
+
+import java.util.ArrayList;
+
+public class Usuario {
+	private String nombre = "";
+	private int fechaCreacion = 0;
+	private ArrayList<Usuario> seguidores = new ArrayList<Usuario>();
+	private ArrayList<Usuario> siguiendo = new ArrayList<Usuario>();
+	private int totalSeguidores;
+	private int totalSiguiendo;
+	
+	public Usuario() {
+	}
+	
+	public Usuario(String nombre, int fechaCreacion, Usuario[] seguidores, Usuario[] siguiendo, int totalSeguidores,
+			int totalSiguiendo) {
+		this.nombre = nombre;
+		this.fechaCreacion = fechaCreacion;
+		this.totalSeguidores = totalSeguidores;
+		this.totalSiguiendo = totalSiguiendo;
+	}
+	
+	
+	
+}

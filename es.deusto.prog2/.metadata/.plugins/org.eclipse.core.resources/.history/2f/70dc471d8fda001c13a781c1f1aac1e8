@@ -1,0 +1,107 @@
+package main;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Random;
+
+import algorithms.Algorithm;
+
+public class Main {
+	// List creation
+	static ArrayList<Integer> limite = new ArrayList<Integer>(); // List with the limits
+	
+	static ArrayList<Integer> lista1 = new ArrayList<Integer>(); // List of size 10
+	static ArrayList<Integer> lista2 = new ArrayList<Integer>(); // List of size 1000
+	static ArrayList<Integer> lista3 = new ArrayList<Integer>(); // List of size 100000
+	
+	static ArrayList<Integer> listab = new ArrayList<>();
+	
+	static ArrayList<ArrayList<Integer>> listas = new ArrayList<ArrayList<Integer>>(); // List of Lists
+	
+	static ArrayList<Integer> rnumber = new ArrayList<Integer>(); // List of random numbers based on the max size of each list
+	
+	public static void main(String args[]){
+		Random rand = new Random();
+		// Adding the different elements to the lists
+		limite.add(10);
+		limite.add(1000);
+		limite.add(100000);
+		
+		
+		listas.add(lista1);
+		listas.add(lista2);
+		listas.add(lista3);
+		
+		rnumber.add(rand.nextInt(9));
+		rnumber.add(rand.nextInt(999));
+		rnumber.add(rand.nextInt(99999));
+		
+		// Random list generator based on the size needed
+		for(int j= 0; j < 3; j++) {
+			for(int t = 0; t <= limite.get(j) - 1; t++) {
+				listas.get(j).add(rand.nextInt(limite.get(j)));
+			}
+		}
+		
+		// Execution of Insertion Sort algorithm
+		for (int i = 0; i < 3; i++) {
+			Collections.shuffle(listas.get(i));
+			Algorithm obj = new Algorithm(); 	// Creating the algorithm
+			long start1 = System.nanoTime(); 	// Execution starting time on nanoseconds
+		    obj.insertSort(listas.get(i)); 		// Execution
+		    long end1 = System.nanoTime();		// Execution ending time on nanoseconds
+		    System.out.println("The Insertion Sort algorithm with an array of " + limite.get(i) +	// Printing the time results
+		    					" elements took " + (end1-start1) + " nanoseconds to execute, or " + ((end1-start1)*0.000001) + " miliseconds" );
+		}
+		System.out.println();
+		
+		// Execution of Linear Search algorithm
+		for (int i = 0; i < 3; i++) {
+			Collections.shuffle(listas.get(i));
+			Algorithm obj = new Algorithm();
+			long start1 = System.nanoTime();
+		    System.out.println("The position of the searched object on the array is " +obj.lineaSearch(listas.get(i), rnumber.get(i)));
+		    long end1 = System.nanoTime();
+		    System.out.println("The Linear Search algorithm with an array of " + limite.get(i) +
+		    					" elements took " + (end1-start1) + " nanoseconds to execute, or " + ((end1-start1)*0.000001) + " miliseconds" );
+		}
+		System.out.println();
+		
+		// Execution of Selection Sort algorithm
+		for (int i = 0; i < 3; i++) {
+			Collections.shuffle(listas.get(i));
+			Algorithm obj = new Algorithm();
+			long start1 = System.nanoTime();
+		    obj.selectionSort(listas.get(i));
+		    long end1 = System.nanoTime();
+		    System.out.println("The Selection Sort algorithm with an array of " + limite.get(i) +
+		    					" elements took " + (end1-start1) + " nanoseconds to execute, or " + ((end1-start1)*0.000001) + " miliseconds" );
+		}
+		System.out.println();
+		
+		// Execution of Merge Sort algorithm
+		for (int i = 0; i < 3; i++) {
+			Collections.shuffle(listas.get(i));
+			Algorithm obj = new Algorithm();
+			long start1 = System.nanoTime();
+			obj.mergeSort(listas.get(i), 0, listas.get(i).size());
+			long end1 = System.nanoTime();
+			System.out.println("The Merge Sort algorithm with an array of " + limite.get(i) +
+				    			" elements took " + (end1-start1) + " nanoseconds to execute, or " + ((end1-start1)*0.000001) + " miliseconds" );
+		}
+		System.out.println();
+		
+		// Execution of Merge Sort algorithm
+		for (int i = 0; i < 3; i++) {
+			Collections.shuffle(listas.get(i));
+			Algorithm obj = new Algorithm();
+			long start1 = System.nanoTime();
+			obj.countingSort(listas.get(i),listab , Collections.max(listas.get(i)));
+			long end1 = System.nanoTime();
+			System.out.println("The Counting Sort algorithm with an array of " + limite.get(i) +
+				    			" elements took " + (end1-start1) + " nanoseconds to execute, or " + ((end1-start1)*0.000001) + " miliseconds" );
+		}
+		System.out.println();
+		System.out.println();
+	}
+}

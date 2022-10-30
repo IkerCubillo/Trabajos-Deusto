@@ -1,0 +1,13 @@
+package sumador;
+
+import javax.swing.JFrame;
+
+public class Sumador extends JFrame{
+	
+	// Diseño Ventana
+	
+	// Inicializar componentes
+	// Añadir componentes
+	// Gestionar eventos
+
+}

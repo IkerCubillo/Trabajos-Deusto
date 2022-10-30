@@ -1,0 +1,16 @@
+package clasesVisuales;
+
+
+import javax.swing.JFrame;
+
+public class VentanaClasificacion extends JFrame {
+	
+	public VentanaClasificacion() {
+		inicializarVentana();
+	}
+	
+	private void inicializarVentana() {
+		
+	}
+
+}

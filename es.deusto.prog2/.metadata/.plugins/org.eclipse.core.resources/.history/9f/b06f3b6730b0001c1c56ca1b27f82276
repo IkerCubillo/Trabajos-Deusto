@@ -1,0 +1,17 @@
+
+public class LeeFrases {
+	
+	FileReader fr=new FileReader("D:\\fichero1.txt");
+    //Leemos el fichero y lo mostramos por pantalla
+    int valor=fr.read();
+    while(valor!=-1){
+        System.out.print((char)valor);
+        valor=fr.read();
+    }
+    //Cerramos el stream
+    fr.close();
+}catch(IOException e){
+    System.out.println("Error E/S: "+e);
+}
+
+}

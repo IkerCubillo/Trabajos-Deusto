@@ -1,0 +1,33 @@
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class EscribeFrases {
+	
+	public static void main(String[] args) {
+		ArrayList<String> aFrases = new ArrayList<String>();
+		
+		aFrases.add("Hola Patito");
+		aFrases.add("Hola Patito");
+		aFrases.add("Hola Patito");
+		aFrases.add("Hola Patito");
+		aFrases.add("Hola Patito");
+		aFrases.add("Hola Patito");
+		aFrases.add("Hola Patito");
+		
+		FileWriter fw;
+		try {
+			fw = new FileWriter("frases.txt");
+			for(String frase : aFrases) {
+				fw.write(frase);
+			}
+			fw.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		
+	}
+}

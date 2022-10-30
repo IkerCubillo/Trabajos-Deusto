@@ -1,0 +1,9 @@
+public class test {
+	public static void main(String[] args) {
+		System.out.println("primer commit sabin hecho");
+		System.out.println("primer commit aitor hecho");
+		System.out.println("primer commit iker hecho");
+		System.out.println("primer commit endika hecho");
+		System.out.println("primer commit kerman hecho");
+	}
+}

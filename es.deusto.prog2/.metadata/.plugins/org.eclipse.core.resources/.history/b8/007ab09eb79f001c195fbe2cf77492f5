@@ -1,0 +1,6 @@
+package viajes;
+
+public interface Cobrable {
+	private void calcularCoste();
+	private	void cobrar();
+}

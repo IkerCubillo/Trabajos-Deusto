@@ -1,0 +1,41 @@
+package main;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import empleados.*;
+import excepciones.SalarioNegativoException;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		ListaEmpleados le = new ListaEmpleados(ArrayList<Empleado> e1 = new ArrayList<>());
+		try {
+			for(int i = 1; i <= 10; i++) {
+				Comercial c = new Comercial("C" + i, 42,10000000*i, "Ventas",200);
+			}
+			for(int i = 1; i <= 10; i++) {
+				Repartidor r = new Repartidor("R" + i, 42,10000000*i, "Ventas", "Zona 1");
+			}
+			
+		} catch (SalarioNegativoException e) {
+			
+		}
+			
+		Repartidor r1 = new Repartidor("paco", 20, 2000, "Ingenieria", "Zona 3");
+		
+		HashMap<String , ArrayList<Empleado>> mapa = new HashMap<>();
+				
+		for(Empleado e: le) {
+			if(!mapa.containsKey(e.getDepartamento())) {
+				mapa.put(e.getDepartamento(), new ArrayList<Empleado>());
+			}
+			ArrayList<Empleado> tmp = mapa.get(e.getDepartamento());
+			tmp.add(e);
+			mapa.put(e.getDepartamento(), tmp);
+		}
+
+	}
+
+}
