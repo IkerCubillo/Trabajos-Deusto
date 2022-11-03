@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-10-31T14:06:46.162281200Z</date>
+  <millis>1667225206162</millis>
+  <nanos>281200</nanos>
+  <sequence>0</sequence>
+  <logger>BD-cliente-ejemplocs</logger>
+  <level>INFO</level>
+  <class>es.deusto.prog3.cap03.cs2.ServicioPersistenciaBDRemota</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Conectando a servidor localhost:45678</message>
+</record>
+<record>
+  <date>2022-10-31T14:06:46.164303900Z</date>
+  <millis>1667225206164</millis>
+  <nanos>303900</nanos>
+  <sequence>1</sequence>
+  <logger>BD-cliente-ejemplocs</logger>
+  <level>WARNING</level>
+  <class>es.deusto.prog3.cap03.cs2.ServicioPersistenciaBDRemota</class>
+  <method>log</method>
+  <thread>23</thread>
+  <message>Fin hilo lectura desde servidor por excepción de comunicación de proceso de cliente de persistencia</message>
+  <exception>
+    <message>java.net.ConnectException: Connection refused: connect</message>
+    <frame>
+      <class>sun.nio.ch.Net</class>
+      <method>connect0</method>
+    </frame>
+    <frame>
+      <class>sun.nio.ch.Net</class>
+      <method>connect</method>
+      <line>579</line>
+    </frame>
+    <frame>
+      <class>sun.nio.ch.Net</class>
+      <method>connect</method>
+      <line>568</line>
+    </frame>
+    <frame>
+      <class>sun.nio.ch.NioSocketImpl</class>
+      <method>connect</method>
+      <line>588</line>
+    </frame>
+    <frame>
+      <class>java.net.SocksSocketImpl</class>
+      <method>connect</method>
+      <line>327</line>
+    </frame>
+    <frame>
+      <class>java.net.Socket</class>
+      <method>connect</method>
+      <line>633</line>
+    </frame>
+    <frame>
+      <class>java.net.Socket</class>
+      <method>connect</method>
+      <line>583</line>
+    </frame>
+    <frame>
+      <class>java.net.Socket</class>
+      <method>&lt;init&gt;</method>
+      <line>507</line>
+    </frame>
+    <frame>
+      <class>java.net.Socket</class>
+      <method>&lt;init&gt;</method>
+      <line>287</line>
+    </frame>
+    <frame>
+      <class>es.deusto.prog3.cap03.cs2.ServicioPersistenciaBDRemota$HiloEscuchaServidorRemoto</class>
+      <method>run</method>
+      <line>45</line>
+    </frame>
+  </exception>
+</record>
+<record>
+  <date>2022-10-31T14:06:51.299183900Z</date>
+  <millis>1667225211299</millis>
+  <nanos>183900</nanos>
+  <sequence>2</sequence>
+  <logger>BD-cliente-ejemplocs</logger>
+  <level>WARNING</level>
+  <class>es.deusto.prog3.cap03.cs2.ServicioPersistenciaBDRemota</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Timeout en espera a conexión de servidor</message>
+</record>
+</log>

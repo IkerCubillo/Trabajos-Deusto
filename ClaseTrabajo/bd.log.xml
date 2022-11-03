@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-10-31T14:04:52.293959400Z</date>
+  <millis>1667225092293</millis>
+  <nanos>959400</nanos>
+  <sequence>0</sequence>
+  <logger>BD-local</logger>
+  <level>INFO</level>
+  <class>es.deusto.prog3.cap03.cs2.ServicioPersistenciaBD</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Conectada base de datos prueba-productos.db</message>
+</record>
+<record>
+  <date>2022-10-31T14:04:52.353799600Z</date>
+  <millis>1667225092353</millis>
+  <nanos>799600</nanos>
+  <sequence>1</sequence>
+  <logger>BD-local</logger>
+  <level>INFO</level>
+  <class>es.deusto.prog3.cap03.cs2.ServicioPersistenciaBD</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Creada base de datos con datos de prueba prueba-productos.db</message>
+</record>
+<record>
+  <date>2022-10-31T14:04:56.705249700Z</date>
+  <millis>1667225096705</millis>
+  <nanos>249700</nanos>
+  <sequence>2</sequence>
+  <logger>BD-local</logger>
+  <level>INFO</level>
+  <class>es.deusto.prog3.cap03.cs2.ServicioPersistenciaBD</class>
+  <method>log</method>
+  <thread>19</thread>
+  <message>Cierre de base de datos</message>
+</record>
+</log>
