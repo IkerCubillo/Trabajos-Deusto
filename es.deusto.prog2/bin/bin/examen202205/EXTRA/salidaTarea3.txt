@@ -1,0 +1,8 @@
+EJEMPLO DE SALIDA EN CONSOLA DE LA TAREA 3:
+
+andoni : 9
+elena : 2
+itziar : 10
+janire : 5
+janire : 7
+lucas : 3
