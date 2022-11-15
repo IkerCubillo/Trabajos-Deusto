@@ -1,6 +1,8 @@
 package es.deusto.prog3.cap06.resueltos;
 
 import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -10,8 +12,10 @@ import java.util.EventObject;
 import javax.swing.*;
 import javax.swing.event.CellEditorListener;
 import javax.swing.event.ChangeEvent;
+import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellEditor;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableModel;
@@ -20,15 +24,16 @@ import javax.swing.table.TableModel;
  * @author andoni.eguiluz @ ingenieria.deusto.es
  */
 public class EjemploRenderersYEditors {
+
 	private static int filaEnClick = -1;
 	private static int colEnClick = -1;
-
+	
 	@SuppressWarnings("serial")
 	public static void main(String[] args) {
 		JFrame ventana = new JFrame( "Ejemplo de comprensión de renderers/editors" );
 		ventana.setDefaultCloseOperation( JFrame.DISPOSE_ON_CLOSE );
 		ventana.setSize( 800, 600 );
-		// ventana.setLocation( 2000, 0 );
+		// ventana.setLocation( 2000, 0 );  // TODO quitar si solo se tiene una ventana
 		JComboBox<String> cb = new JComboBox<>( new String[] { "Admins", "Gestores", "Usuarios" } );
 		ventana.add( cb, BorderLayout.NORTH );
 		JList<Usuario> listaUsuarios = new JList<>( 
@@ -49,6 +54,7 @@ public class EjemploRenderersYEditors {
 			}
 		}
 		JTable tabla = new JTable( datos, columns );
+		
 		ventana.add( new JScrollPane( tabla ), BorderLayout.CENTER );
 
 		cb.setRenderer( new ListCellRenderer<String>() {
@@ -143,8 +149,9 @@ public class EjemploRenderersYEditors {
 				if (isSelected) {
 					l.setBackground( Color.LIGHT_GRAY );
 				}
+				// Comunicación entre el renderer y el mouselistener
 				if (row == filaEnClick && column == colEnClick) {
-					l.setBackground( Color.GREEN );
+					l.setForeground( Color.GREEN );
 				}
 				return l;
 			}
@@ -156,26 +163,15 @@ public class EjemploRenderersYEditors {
 		});
 		
 		tabla.setDefaultEditor( Object.class, new TableCellEditor() {
-			boolean editable = false;
 			private ArrayList<CellEditorListener> lCEL = new ArrayList<>();
 			
 			@Override
 			public boolean isCellEditable(EventObject anEvent) {
-				
-				tabla.addMouseListener(new MouseAdapter() {
-				    public void mouseClicked(MouseEvent evt) {
-				        if (evt.getClickCount() == 1) {
-				        	editable = true;
-				        }
-				    }
-				});
-				System.out.println(editable);
-				if (editable) {
-					editable = false;
-					return true;
-				} else {
-				return false;
+				// Si se quiere que no se entre con click, sino con doble click...
+				if (anEvent instanceof MouseEvent) {
+					return ((MouseEvent) anEvent).getClickCount() >= 2;
 				}
+				return true;
 			}
 			@Override
 			public void addCellEditorListener(CellEditorListener l) {
@@ -239,113 +235,214 @@ public class EjemploRenderersYEditors {
 			{ 850, 100.0, "Luis", false }
 		};
 		String[] columnasNuevas = new String[] { "Id", "Saldo", "Nick", "Premium" };
-		TableModel modelo = new TableModel() {
-			// Los listeners
-			ArrayList<TableModelListener> lista = new ArrayList<>();
-			@Override
-			public void removeTableModelListener(TableModelListener l) {
-				lista.remove( l );
-			}
-			@Override
-			public void addTableModelListener(TableModelListener l) {
-				lista.add( l );
-			}
-
-			// Sin estas no hay nada que hacer (ver que sin tocarlas no se ve la tabla o casca)
-			@Override
-			public int getRowCount() {
-				return datosNuevos.length;
-			}
-			@Override
-			public int getColumnCount() {
-				return datosNuevos[0].length;
-			}
-			@Override
-			public Class<?> getColumnClass(int columnIndex) {
-				// Podríamos devolver un tipo distinto por cada columna, por ejemplo
-				// (esto nos podría servir para configurar renderers distintos por columna)
-				// El de String coge el de Object si no hay particular de String, sin embargo el de Boolean coge un checkbox por defecto
-				if (columnIndex==2) {
-					return String.class;
-				} else if (columnIndex==3) {
-					return Boolean.class;
-				}
-				return Object.class;
-			}
-
-			// Nada de esto sirve si el modelo no sabe QUÉ datos devolver
-			@Override
-			public Object getValueAt(int rowIndex, int columnIndex) {
-				// System.out.println( "getValue " + rowIndex + "," + columnIndex );
-				return datosNuevos[rowIndex][columnIndex];
-			}
-			
-			@Override
-			public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
-				// System.out.println( "setValue " + rowIndex + "," + columnIndex + " = " + aValue );
-				datosNuevos[rowIndex][columnIndex] = aValue;
-				// ¿Cómo hacer que un entero siga siendo un entero?
-				// Lo podemos hacer en el propio editor, o forzarlo aquí en el modelo. Por ejemplo
-				// if (columnIndex==0) {
-				// 	try {
-				// 		int valor = Integer.parseInt( (String) aValue );
-				// 		datosNuevos[rowIndex][columnIndex] = Integer.valueOf( valor );
-				// 	} catch (NumberFormatException e) {}
-				// } else if (columnIndex==1) {
-				// 	try {
-				// 		double valor = Double.parseDouble( (String) aValue );
-				// 		datosNuevos[rowIndex][columnIndex] = Double.valueOf( valor );
-				// 	} catch (NumberFormatException e) {}
-				// }
-			}
-			
-			// Y esto no funciona si la celda no es editable (para poder editar tienen que ser true los dos isCellEditable, el editor y el modelo de datos)
-			@Override
-			public boolean isCellEditable(int rowIndex, int columnIndex) {
-				if (columnIndex==2) {
-					return false;
-				}
-				return true;
-			}
-			
-			// Y habíamos perdido las cabeceras!  Van también con el modelo: aquí están.
-			@Override
-			public String getColumnName(int columnIndex) {
-				return (new String[] { "Dato 1", "Dato 2", "Nombre", "¿Director/a?" })[columnIndex];
-			}
-		};
+		MiModeloDeTabla modelo = new MiModeloDeTabla( datosNuevos );
 		tabla.setModel( modelo );
 
-		tabla.addMouseListener(new MouseListener() {
-			
+		tabla.addMouseListener( new MouseListener() {
 			@Override
 			public void mouseReleased(MouseEvent e) {
-				System.out.println("MReleased en " + e);
+				// System.out.println( "MReleased en " + e );
 			}
 			@Override
 			public void mousePressed(MouseEvent e) {
-				System.out.println("MPressed en " + e);
+				// System.out.println( "MPressed en " + e );
 			}
 			@Override
 			public void mouseExited(MouseEvent e) {
-				System.out.println("MExited en " + e);
+				// System.out.println( "MExited en " + e );
 			}
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				System.out.println("MEntered en " + e);
+				// System.out.println( "MEntered en " + e );
 			}
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				System.out.println("MClicked en " + e);
-				filaEnClick = tabla.rowAtPoint(e.getPoint());
-				colEnClick = tabla.columnAtPoint(e.getPoint());
-				System.out.println("Click en tabla fila, columna = " + filaEnClick + "," + colEnClick);
+				// int antFila = filaEnClick; int antCol = colEnClick;  // Si hace falta (nota de abajo) (***)
+				System.out.println( "MClicked en " + e );
+				filaEnClick = tabla.rowAtPoint( e.getPoint() );
+				colEnClick = tabla.columnAtPoint( e.getPoint() );
+				System.out.println( "Click en tabla fila,columna = " + filaEnClick + "," + colEnClick );
+				tabla.repaint();
+				// (***)
+				// Se podría repintar solo una celda, pero hay que contar entonces con el modelo:
+				// Hacer como si el modelo actualizara un valor
+				// modelo.fireTableChanged( new TableModelEvent( modelo, filaEnClick, filaEnClick, colEnClick ) );
+				// Ojo porque si queremos pintar una de verde y que la que antes estaba de verde se quite,
+				// entonces también habría que refrescar la que ha "perdido el verde":
+				// modelo.fireTableChanged( new TableModelEvent( modelo, antFila, antFila, antCol ) );
+				// En resumen, es más cómodo repintar toda la tabla aunque más eficiente refrescar solo
+				// las celdas que cambian
 			}
+			
 		});
+
+		// Tarea intercambio
+		MouseAdapter ma = new MouseAdapter() {  // MouseAdapter implementa tanto ML como MML
+			int filaPul;
+			int colPul;
+			@Override
+			public void mousePressed(MouseEvent e) {
+				filaPul = tabla.rowAtPoint( e.getPoint() );
+				colPul = tabla.columnAtPoint( e.getPoint() );
+			}
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				int filaSuel = tabla.rowAtPoint( e.getPoint() );
+				int colSuel = tabla.columnAtPoint( e.getPoint() );
+				// Trabajo del intercambio
+				if (colPul == 2 && colSuel == 2 && filaSuel!=filaPul) {
+					Object temporal = modelo.getValueAt(filaSuel, colSuel);
+					modelo.setValueAt( modelo.getValueAt(filaPul, colPul), filaSuel, colSuel);
+					modelo.setValueAt( temporal, filaPul, colPul );
+					tabla.repaint();
+				}
+			}
+			// MouseAdapter -> Mouse + MouseMotion (moved, dragged)
+			@Override
+			public void mouseDragged(MouseEvent e) {
+				System.out.println( "Drag: " + e.getPoint() );
+				// TODO hacer aquí lo que se quiera con el drag - por ejemplo que se pinte 
+				// encima de la tabla la celda que se está moviendo
+			}
+		};
+		tabla.addMouseListener( ma );
+		tabla.addMouseMotionListener( ma );
+				
+		// Tarea tecla supr
+		
+//		tabla.addKeyListener(new KeyListener() {
+		
+		KeyListener kl = new KeyListener() {
+			private final int COD_SUPR = 127;
+			@Override
+			public void keyTyped(KeyEvent e) {
+//				System.out.println("Typed: " + e);
+				
+			}
+			
+			@Override
+			public void keyReleased(KeyEvent e) {
+//				System.out.println("Released: " + e);
+				
+				if(e.getKeyCode() == KeyEvent.VK_DELETE) {
+					System.out.println("Pulsada Del");
+					if(tabla.getSelectedColumn() == 2) {
+						int fila = tabla.getSelectedRow();
+						int col = tabla.getSelectedColumn();
+						modelo.setValueAt("", fila, col);
+						tabla.repaint();
+					}
+				}
+			}
+			
+			@Override
+			public void keyPressed(KeyEvent e) {
+//				System.out.println("Pressed: " + e);
+			}
+		};
+		
+		tabla.addKeyListener(kl);
+//		cb.addKeyListener(kl);
+//		listaUsuarios.addKeyListener(kl);		
 		
 		ventana.setVisible( true );
 	}
 
+	// Clase privada para el modelo de datos 
+	
+	private static class MiModeloDeTabla implements TableModel {
+		// Datos con los que trabajar
+		Object[][] misDatos;
+		
+		// Inicialización en el constructor
+		public MiModeloDeTabla( Object[][] datos ) {
+			misDatos = datos;
+		}
+		
+		// Los listeners
+		ArrayList<TableModelListener> lista = new ArrayList<>();
+		@Override
+		public void removeTableModelListener(TableModelListener l) {
+			lista.remove( l );
+		}
+		@Override
+		public void addTableModelListener(TableModelListener l) {
+			lista.add( l );
+		}
+
+		// Sin estas no hay nada que hacer (ver que sin tocarlas no se ve la tabla o casca)
+		@Override
+		public int getRowCount() {
+			return misDatos.length;
+		}
+		@Override
+		public int getColumnCount() {
+			return misDatos[0].length;
+		}
+		@Override
+		public Class<?> getColumnClass(int columnIndex) {
+			// Podríamos devolver un tipo distinto por cada columna, por ejemplo
+			// (esto nos podría servir para configurar renderers distintos por columna)
+			// El de String coge el de Object si no hay particular de String, sin embargo el de Boolean coge un checkbox por defecto
+			if (columnIndex==2) {
+				return String.class;
+			} else if (columnIndex==3) {
+				return Boolean.class;
+			}
+			return Object.class;
+		}
+
+		// Nada de esto sirve si el modelo no sabe QUÉ datos devolver
+		@Override
+		public Object getValueAt(int rowIndex, int columnIndex) {
+			// System.out.println( "getValue " + rowIndex + "," + columnIndex );
+			return misDatos[rowIndex][columnIndex];
+		}
+		
+		@Override
+		public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
+			// System.out.println( "setValue " + rowIndex + "," + columnIndex + " = " + aValue );
+			misDatos[rowIndex][columnIndex] = aValue;
+			// ¿Cómo hacer que un entero siga siendo un entero?
+			// Lo podemos hacer en el propio editor, o forzarlo aquí en el modelo. Por ejemplo
+			// if (columnIndex==0) {
+			// 	try {
+			// 		int valor = Integer.parseInt( (String) aValue );
+			// 		datosNuevos[rowIndex][columnIndex] = Integer.valueOf( valor );
+			// 	} catch (NumberFormatException e) {}
+			// } else if (columnIndex==1) {
+			// 	try {
+			// 		double valor = Double.parseDouble( (String) aValue );
+			// 		datosNuevos[rowIndex][columnIndex] = Double.valueOf( valor );
+			// 	} catch (NumberFormatException e) {}
+			// }
+		}
+		
+		// Y esto no funciona si la celda no es editable (para poder editar tienen que ser true los dos isCellEditable, el editor y el modelo de datos)
+		@Override
+		public boolean isCellEditable(int rowIndex, int columnIndex) {
+			if (columnIndex==2) {
+				return false;
+			}
+			return true;
+		}
+		
+		// Y habíamos perdido las cabeceras!  Van también con el modelo: aquí están.
+		@Override
+		public String getColumnName(int columnIndex) {
+			return (new String[] { "Dato 1", "Dato 2", "Nombre", "¿Director/a?" })[columnIndex];
+		}
+		
+		// Y aunque el interfaz no lo obligue, se puede hacer un método para que se propaguen eventos 
+		// a los escuchadores. Por ejemplo (DefaultTableModel lo hace así):
+	    public void fireTableChanged(TableModelEvent e) {
+	        // Procesar los escuchadores al revés, notificando el evento
+	        for (int i = lista.size()-1; i>=0; i--) {
+	        	lista.get(i).tableChanged( e );
+	        }
+	    }
+	}
+	
 }
 
 // Clase de ejemplo
