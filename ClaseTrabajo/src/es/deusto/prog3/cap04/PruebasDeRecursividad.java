@@ -11,6 +11,13 @@ public class PruebasDeRecursividad {
 		conteo( 1 );
 	}
 	
+	// n! = 1 * 2 * 3 * 4 * 5 * ... * (n-2) * (n-1) * n
+	// si n > 1 --> n! = n * (n-1)! [factorial(n) returns n * factorial(n-1)]
+	//	 n == 0 --> n! = 1
+	private static int factorial(int n) {
+		
+	}
+	
 	// Contar (sacar a consola) de i a 4000:
 	//    - Caso recursivo:
 	//      - sacar a consola i

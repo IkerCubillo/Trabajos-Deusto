@@ -13,13 +13,12 @@ public class Factorial {
 	
 	/**
 	 * Returns the factorial of the number inserted
-	 * @param number. It must be an integer and positive number. Else i will return -1
+	 * @param number. It must be an integer and positive number. Else it will return -1
 	 * @return It returns the factorial of the number inserted
 	 */
 	private static int factorial( int number ) {
 		if (number < 0) { // Detect number is negative
-			System.out.println(number + " is negative, so we can't "
-					+ "calculate its factorial.");
+			System.out.println(number + " is negative, so we can't calculate its factorial.");
 			return -1; // If negative, stop and return -1
 		}
 		
