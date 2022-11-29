@@ -14,5 +14,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="H:/libs/sqlite-jdbc-3.39.3.0/sqlite-jdbc-3.39.3.0.jar"/>
+	<classpathentry kind="lib" path="src/es/deusto/prog3/cap04/ejercicios/ServicioLogin.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
